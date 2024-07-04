@@ -1,0 +1,30 @@
+<hibernate-mapping package="DP_Java.Filter" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <filter-def name="filterByMake">
+        <filter-param name="make" type="string"/>
+    </filter-def>
+
+    <filter-def name="filterByColor">
+        <filter-param name="color" type="string"/>
+    </filter-def>
+
+    <filter-def name="filterByAge">
+        <filter-param name="age" type="integer"/>
+    </filter-def>
+
+    <filter-def name="filterByMakeAndModel">
+        <filter-param name="make" type="string"/>
+        <filter-param name="model" type="string"/>
+    </filter-def>
+
+    <class name="Car" table="Filters_car">
+        <id name="id" column="Car_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="color"/>
+        <property name="name"/>
+        <property name="make"/>
+        <property name="model"/>
+
+        <filter name="filterByMake" condition="make = :make"/>
+    </class>
+</hibernate-mapping>

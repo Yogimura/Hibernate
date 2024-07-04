@@ -1,0 +1,90 @@
+<hibernate-mapping package="DP_Java.CarShowroom.Showroom">
+    <!--Lists-->
+    <class name="ShowroomList" table="Showroom_List">
+        <id column="Showroom_id" name="idShowroom">
+            <generator class="native" />
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+        <list name="cars" cascade="all" table="Cars_list">
+            <key column="ShowroomID"/>
+            <index column="CAR_INDEX"/>
+            <one-to-many class="DP_Java.CarShowroom.Cars.CarList" />
+        </list>
+    </class>
+
+    <!--Sets-->
+    <class name="ShowroomSet" table="Showroom_Set">
+        <id column="Showroom_id" name="idShowroom">
+            <generator class="native" />
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+
+        <set name="cars" table="Cars_set" cascade="all">
+            <key column="ShowroomID"/>
+            <one-to-many class="DP_Java.CarShowroom.Cars.CarSet"/>
+        </set>
+    </class>
+
+    <!--Maps-->
+    <class name="ShowroomMap" table="Showroom_Map">
+        <id column="Showroom_id" name="idShowroom">
+            <generator class="native"/>
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+
+        <map name="cars" cascade="all" table="Cars_map">
+            <key column="Showroom_id"/>
+            <map-key column="Customer_name" type="string" />
+            <one-to-many class="DP_Java.CarShowroom.Cars.CarMap" />
+        </map>
+    </class>
+
+    <!--Arrays-->
+    <class name="ShowroomArray" table="Showroom_Array" >
+        <id name="idShowroom" column="Showroom_id">
+            <generator class="native" />
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+
+        <array name="cars" cascade="all" table="Cars_array">
+            <key column="Showroom_id" />
+            <index column="Car_Index" />
+            <element column="Car_name" type="string" not-null="true"/>
+        </array>
+    </class>
+
+    <!--Bags-->
+    <class name="ShowroomBag" table="Showroom_bag">
+        <id name="idShowroom" column="Showroom_id">
+            <generator class="native" />
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+
+        <bag name="cars" cascade="all" table="Cars_bag">
+            <key column="Showroom_id" />
+            <one-to-many class="DP_Java.CarShowroom.Cars.CarBag"/>
+        </bag>
+    </class>
+
+    <!--IdBags
+    <class name="ShowroomIdbag" table="Showroom_idbag">
+        <id name="idShowroom" column="Showroom_id">
+            <generator class="native" />
+        </id>
+        <property name="manager" column="Manager" />
+        <property name="location" column="Location" />
+
+        <idbag name="cars" cascade="all" table="Cars_idbag">
+            <collection-id column="Showroom_car_id" type="string">
+                <generator class="native" />
+            </collection-id>
+            <key column="Showroom_id" />
+            <many-to-many class="DP_Java.CarShowroom.Associations.CarIdbag"/>
+        </idbag>
+    </class>-->
+</hibernate-mapping>

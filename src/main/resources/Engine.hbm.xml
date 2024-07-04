@@ -1,0 +1,21 @@
+<hibernate-mapping package="DP_Java.Associations.Cars" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="Engine" table="Engine">
+        <id name="id" column="Engine_id">
+            <generator class="foreign">
+                <param name="property">car</param>
+            </generator>
+        </id>
+        <property name="make" column="Make" />
+        <property name="model" column="Model" />
+        <property name="size" column="Size"/>
+        <one-to-one name="car" class="CarAsso" constrained="true"/>
+    </class>
+    <class name="Engine2" table="Engine2">
+        <id name="id" column="Engine_id">
+            <generator class="assigned" />
+        </id>
+        <property name="size" column="Size"/>
+        <property name="make" column="Make" />
+        <property name="model" column="Model"/>
+    </class>
+</hibernate-mapping>

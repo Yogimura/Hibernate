@@ -1,0 +1,22 @@
+<hibernate-mapping package="DP_Java.Associations.Cinema" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="Movie" table="Movies">
+        <id name="id" column="Movie_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="title" column="Title"/>
+        <set name="actors" table="Actors" cascade="all">
+            <key column="Movie_id" not-null="true"/>
+            <one-to-many class="Actor"/>
+        </set>
+    </class>
+    <class name="Moviebi" table="MoviesBi">
+        <id name="id" column="Movie_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="title" column="Title"/>
+        <set name="actors" table="ActorsBi" cascade="all">
+            <key column="Movie_id" not-null="true"/>
+            <one-to-many class="Actorbi"/>
+        </set>
+    </class>
+</hibernate-mapping>

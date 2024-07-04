@@ -1,0 +1,9 @@
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="DP_Java.TradeApp.TradePlain" table="Trades">
+        <id name="tradeId" column="ID">
+            <generator class="assigned" />
+        </id>
+        <property name="quantity" column="Quantity" type="double"/>
+        <property name="security" column="Security" type="string"/>
+    </class>
+</hibernate-mapping>

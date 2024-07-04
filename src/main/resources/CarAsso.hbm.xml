@@ -1,0 +1,19 @@
+<hibernate-mapping package="DP_Java.Associations.Cars">
+    <class name="CarAsso" table="Cars_asso">
+        <id name="id" column="Car_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="Name" />
+        <property name="color" column="Color" />
+        <one-to-one name="engine" class="Engine" cascade="all"/>
+    </class>
+
+    <class name="Car2" table="Cars_asso2">
+        <id name="id" column="Car_id">
+            <generator class="assigned" />
+        </id>
+        <property name="name" column="Name" />
+        <property name="color" column="Color" />
+        <many-to-one name="engine" class="Engine2" column="Engine_id" unique="true" cascade="all" />
+    </class>
+</hibernate-mapping>

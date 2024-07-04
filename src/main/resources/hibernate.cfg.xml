@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!--property name="hibernate.cache.provider_class">
+            org.hibernate.cache.infinispan.InfinispanRegionFactory
+        </property>
+        <property name="hibernate.cache.default_cache_concurrency_strategy">
+
+        </property>
+        <property name="hibernate.cache.use_query_cache">true</property-->
+        <property name="connection.pool_size">5</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="connection.url">
+            jdbc:mysql://localhost:3306/JH
+        </property>
+
+        <property name="connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <property name="connection.username">
+            root
+        </property>
+
+        <property name="connection.password">
+            Vladi.Alex#20
+        </property>
+
+        <property name="dialect">
+            org.hibernate.dialect.MySQL8Dialect
+        </property>
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!--mapping resource="MovieDB.hbm.xml" />
+        <mapping resource="TradePlain.hbm.xml" />
+        <mapping class="DP_Java.EmployeeManagement.Employee"/>
+        <mapping class="DP_Java.CourseManagement.Course1" />
+        <mapping class="DP_Java.CourseManagement.Course2" />
+        <mapping class="DP_Java.CourseManagement.Course3" />
+        <mapping resource="CarShow.hbm.xml" />
+        <mapping resource="Showroom.hbm.xml" />
+        <mapping class="DP_Java.CarShowroom.Cars.FKCar"/>
+        <mapping class="DP_Java.CarShowroom.Showroom.FKShowroom"/>
+        <mapping class="DP_Java.CarShowroom.Cars.CarJoin"/>
+        <mapping class="DP_Java.CarShowroom.Showroom.ShowroomJoin" />
+        <mapping resource="CarAsso.hbm.xml" />
+        <mapping resource="Engine.hbm.xml" />
+        <mapping class="DP_Java.Associations.Cars.EngineAnnot"/>
+        <mapping class="DP_Java.Associations.Cars.CarAnnot"/>
+        <mapping resource="Actor.hbm.xml"/>
+        <mapping resource="MovieAsso.hbm.xml" />
+        <mapping resource="Student.hbm.xml"/>
+        <mapping resource="Course.hbm.xml" />
+        <mapping resource="PersonType.hbm.xml" />
+        <mapping resource="EmployeeExecutive.hbm.xml" /-->
+        <mapping class="DP_Java.EmployeeManager.EmployeeTPerC" />
+        <mapping class="DP_Java.EmployeeManager.ExecutiveTPerC" />
+        <mapping class="DP_Java.EmployeeManager.EmployeeTPerSC" />
+        <mapping class="DP_Java.EmployeeManager.ExecutiveTPerSC"/>
+        <mapping class="DP_Java.EmployeeManager.EmployeeTPerCS" />
+        <mapping class="DP_Java.EmployeeManager.ExecutiveTPerCS"/>
+    </session-factory>
+</hibernate-configuration>

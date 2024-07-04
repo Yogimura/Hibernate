@@ -1,0 +1,16 @@
+<hibernate-mapping package="DP_Java.HQL" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="TravelReview" table="Travel_reviews">
+        <id name="id">
+            <generator class="native" />
+        </id>
+    </class>
+    <query name="getAll">
+        <![CDATA[from TravelReview]]>>
+    </query>
+    <query name="getByID">
+        <![CDATA[from TravelReview where id=:id]]>
+    </query>
+    <query name="getAllSQL">
+        <![CDATA[SELECT * FROM TravelReview]]>
+    </query>
+</hibernate-mapping>

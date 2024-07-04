@@ -1,0 +1,24 @@
+<hibernate-mapping package="DP_Java.Types" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="PersonType" table="Person">
+        <!--cache usage="read-write" region=""/-->
+        <id name="id" column="Person_id">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="firstName" column="name"/>
+        <property name="nickName" column="Alias"/>
+        <property name="lastName" column="Lastname"/>
+
+        <component name="homePhone" class="PhoneNumber">
+            <property name="areaCode"  column="Home_area_code"/>
+            <property name="phoneNumber" column="Home_phone_number"/>
+            <property name="name" column="Home_name"/>
+        </component>
+
+        <component name="mobilePhone" class="PhoneNumber">
+            <property name="areaCode"  column="Mobile_area_code"/>
+            <property name="phoneNumber" column="Mobile_phone_number"/>
+            <property name="name" column="Mobile_name"/>
+        </component>
+    </class>
+</hibernate-mapping>

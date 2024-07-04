@@ -1,0 +1,46 @@
+<hibernate-mapping package="DP_Java.CarShowroom.Cars">
+    <!--List-->
+    <class name="CarList" table="Cars_list">
+        <id column="car_id" name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="Name"/>
+        <property name="color" column="Color"/>
+    </class>
+
+    <!--Set-->
+    <class name="CarSet" table="Cars_set">
+        <id column="car_id" name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="Name" />
+        <property name="color" column="Color" />
+    </class>
+
+    <!--Map-->
+    <class name="CarMap" table="Cars_map">
+        <id column="card_id" name="id">
+            <generator class="native" />
+        </id>
+        <property name="name" column="Name" />
+        <property name="color" column="Color" />
+    </class>
+
+    <!--Bag-->
+    <class name="CarBag" table="Cars_bag">
+        <id column="car_id" name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="Name"/>
+        <property name="color" column="Color"/>
+    </class>
+
+    <!--IdBag
+    <class name="CarIdbag" table="Cars_idbag">
+        <id column="car_id" name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="Name"/>
+        <property name="color" column="Color"/>
+    </class>-->
+</hibernate-mapping>

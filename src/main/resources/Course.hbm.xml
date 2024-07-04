@@ -1,0 +1,12 @@
+<hibernate-mapping package="DP_Java.Associations.Students" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="Course" table="Course">
+        <id name="id" column="Course_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="title" column="Title"/>
+        <set name="students" table="STUDENT_COURSE" lazy="false" cascade="all">
+            <key column="Course_id" />
+            <many-to-many column="Student_id" class="Student"/>
+        </set>
+    </class>
+</hibernate-mapping>

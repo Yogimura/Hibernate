@@ -1,0 +1,38 @@
+<hibernate-mapping package="DP_Java.EmployeeManager" xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="EmployeeTPerC" table="Inheritance_s1_employee" discriminator-value="Employee">
+        <id name="id" column="Employee_id">
+            <generator class="assigned"/>
+        </id>
+        <discriminator column="Discriminator"/>
+
+        <property name="name" column="Name"/>
+        <subclass name="ExecutiveTPerC" extends="EmployeeTPerC" discriminator-value="Executive">
+            <property name="role" column="Role"/>
+        </subclass>
+    </class>
+
+    <class name="EmployeeTPerSC" table="Inheritance_s2_employee">
+        <id name="id" column="Employee_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="Name"/>
+        <joined-subclass name="ExecutiveTPerSC" table="Inheritance_s2_executive">
+            <key column="Employee_id"/>
+            <property name="role" column="Role"/>
+        </joined-subclass>
+    </class>
+
+    <class name="Person" abstract="true">
+        <id name="id" column="Employee_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="Name"/>
+
+        <union-subclass name="EmployeeTPerCS" table="Inheritance_s3_employee">
+            <property name="role" column="Role"/>
+        </union-subclass>
+        <union-subclass name="ExecutiveTPerCS" table="Inheritance_s3_executive">
+            <property name="bonus" column="Bonus"/>
+        </union-subclass>
+    </class>
+</hibernate-mapping>
